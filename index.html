@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Food - Keep your food fresh, Keep your meals inspired</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>Eco Food</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pantry">Pantry</a></li>
+                <li><a href="#inventory">Inventory</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#leftover">Leftover Magic</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#login" class="login-btn">Login</a></li>
+                <li><a href="#trial" class="trial-btn">Start free trial</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="intro-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Introducing Eco Food</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <h1>Keep your food fresh</h1>
+                <h2>Keep your meals inspired</h2>
+                <button class="cta-button" onclick="startRecipeGeneration()">
+                    Start generating your dream recipe now!
+                </button>
+            </div>
+        </section>
+
+        <!-- Steps Section -->
+        <section class="steps">
+            <h2>Three steps to generate your own recipe</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3>Add your ingredients</h3>
+                    <p>List what you have on hand.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-archive"></i>
+                    </div>
+                    <h3>Save to your online pantry</h3>
+                    <p>Keep track of your stock.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Generate your recipe</h3>
+                    <p>Discover meal ideas instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="features-badge">Features</div>
+            <h2>Discover our powerful features</h2>
+            <p class="features-description">
+                Eco Food offers a comprehensive set of features to help you effortlessly manage your pantry and create delicious meals with ease
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Eco-Friendly Recipes</h3>
+                    <p>Generate sustainable recipes that minimize food waste and promote environmental consciousness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Smart Pantry Management</h3>
+                    <p>AI-powered inventory tracking that learns your consumption patterns and suggests optimal shopping lists.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Meal Planning</h3>
+                    <p>Plan your weekly meals based on available ingredients and dietary preferences.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Waste Reduction Analytics</h3>
+                    <p>Track your food waste reduction progress and environmental impact over time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access your pantry and recipes anywhere with our responsive mobile design.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Family Sharing</h3>
+                    <p>Share your pantry and meal plans with family members for coordinated grocery shopping.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Generator Section -->
+        <section id="pantry" class="recipe-generator">
+            <h2>Try Our Recipe Generator</h2>
+            <div class="generator-container">
+                <div class="ingredient-input">
+                    <h3>What ingredients do you have?</h3>
+                    <div class="input-group">
+                        <input type="text" id="ingredientInput" placeholder="Enter an ingredient (e.g., chicken, tomatoes, rice)">
+                        <button onclick="addIngredient()">Add</button>
+                    </div>
+                    <div class="ingredients-list" id="ingredientsList"></div>
+                    
+                    <div class="servings-input">
+                        <h4>How many people are you cooking for?</h4>
+                        <div class="servings-group">
+                            <label for="servingsInput">Number of servings:</label>
+                            <input type="number" id="servingsInput" min="1" max="12" value="4" placeholder="4">
+                        </div>
+                    </div>
+                    
+                    <button class="generate-btn" onclick="generateRecipe()" id="generateBtn" disabled>
+                        Generate Eco-Friendly Recipe
+                    </button>
+                </div>
+                <div class="recipe-output" id="recipeOutput">
+                    <h3>Your Eco-Friendly Recipe</h3>
+                    <p>Add some ingredients to generate a sustainable recipe!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Inventory Management Section -->
+        <section id="inventory" class="inventory-management">
+            <h2>Smart Inventory Management</h2>
+            <p class="section-description">Track your groceries with expiry dates and get AI-powered notifications</p>
+            
+            <div class="inventory-container">
+                <div class="add-product">
+                    <h3>Add Product to Inventory</h3>
+                    <div class="product-form">
+                        <div class="form-row">
+                            <input type="text" id="productName" placeholder="Product name (e.g., Milk, Bread)">
+                            <input type="number" id="productQuantity" placeholder="Quantity" min="1" value="1">
+                            <select id="productUnit">
+                                <option value="pieces">pieces</option>
+                                <option value="kg">kg</option>
+                                <option value="g">g</option>
+                                <option value="L">L</option>
+                                <option value="ml">ml</option>
+                                <option value="cups">cups</option>
+                                <option value="tbsp">tbsp</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="date" id="purchaseDate" placeholder="Purchase Date">
+                            <input type="date" id="expiryDate" placeholder="Expiry Date">
+                            <button onclick="addToInventory()" class="add-btn">Add to Inventory</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="inventory-display">
+                    <h3>Your Inventory</h3>
+                    <div class="inventory-filters">
+                        <button onclick="filterInventory('all')" class="filter-btn active">All Items</button>
+                        <button onclick="filterInventory('expiring')" class="filter-btn">Expiring Soon</button>
+                        <button onclick="filterInventory('expired')" class="filter-btn">Expired</button>
+                    </div>
+                    <div id="inventoryList" class="inventory-list">
+                        <p class="empty-inventory">No items in inventory. Add some products to get started!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="expiry-notifications" id="expiryNotifications">
+                <!-- Notifications will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Community Marketplace Section -->
+        <section id="community" class="community-marketplace">
+            <h2>Community Food Marketplace</h2>
+            <p class="section-description">Share surplus food with your community instead of throwing it away</p>
+            
+            <div class="marketplace-container">
+                <div class="share-food">
+                    <h3>Share Your Surplus Food</h3>
+                    <div class="share-form">
+                        <div class="form-row">
+                            <input type="text" id="shareProductName" placeholder="Product name">
+                            <input type="number" id="shareQuantity" placeholder="Quantity" min="1">
+                            <select id="shareUnit">
+                                <option value="pieces">pieces</option>
+                                <option value="kg">kg</option>
+                                <option value="g">g</option>
+                                <option value="L">L</option>
+                                <option value="ml">ml</option>
+                                <option value="packs">packs</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="sharePrice" placeholder="Price ($)" min="0" step="0.01">
+                            <input type="date" id="shareExpiryDate" placeholder="Expiry Date">
+                            <input type="text" id="shareLocation" placeholder="Location/Area">
+                        </div>
+                        <textarea id="shareDescription" placeholder="Description (condition, reason for sharing, etc.)" rows="3"></textarea>
+                        <button onclick="shareFood()" class="share-btn">Share Food</button>
+                    </div>
+                </div>
+                
+                <div class="marketplace-listings">
+                    <h3>Available Food in Your Area</h3>
+                    <div class="search-filters">
+                        <input type="text" id="searchLocation" placeholder="Search by location">
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="dairy">Dairy</option>
+                            <option value="produce">Produce</option>
+                            <option value="pantry">Pantry Items</option>
+                            <option value="frozen">Frozen</option>
+                            <option value="bakery">Bakery</option>
+                        </select>
+                        <button onclick="searchMarketplace()" class="search-btn">Search</button>
+                    </div>
+                    <div id="marketplaceListings" class="marketplace-listings-grid">
+                        <!-- Sample listings will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leftover Magic Section -->
+        <section id="leftover" class="leftover-magic">
+            <h2>Leftover Magic - AI Recipe Creator</h2>
+            <p class="section-description">Transform your leftover cooked food into delicious new dishes with AI</p>
+            
+            <div class="leftover-container">
+                <div class="leftover-input">
+                    <h3>What leftovers do you have?</h3>
+                    <div class="leftover-form">
+                        <div class="form-row">
+                            <input type="text" id="leftoverFood" placeholder="Describe your leftover food (e.g., roasted chicken, rice, vegetables)">
+                            <select id="leftoverAmount">
+                                <option value="small">Small amount</option>
+                                <option value="medium">Medium amount</option>
+                                <option value="large">Large amount</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <select id="cuisinePreference">
+                                <option value="any">Any Cuisine</option>
+                                <option value="italian">Italian</option>
+                                <option value="asian">Asian</option>
+                                <option value="mexican">Mexican</option>
+                                <option value="indian">Indian</option>
+                                <option value="mediterranean">Mediterranean</option>
+                            </select>
+                            <select id="mealType">
+                                <option value="any">Any Meal</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                                <option value="snack">Snack</option>
+                            </select>
+                        </div>
+                        <textarea id="additionalIngredients" placeholder="Additional ingredients you can add (optional)" rows="2"></textarea>
+                        <button onclick="generateLeftoverRecipe()" class="magic-btn">✨ Create Magic Recipe</button>
+                    </div>
+                </div>
+                
+                <div class="leftover-output" id="leftoverOutput">
+                    <h3>Your Magic Recipe</h3>
+                    <p>Describe your leftovers to get AI-powered recipe suggestions!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <h2>Choose Your Subscription Plan</h2>
+            <p class="pricing-description">
+                Select the plan that best fits your sustainable cooking journey
+            </p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free Plan</h3>
+                    <div class="price">$0<span>/year</span></div>
+                    <div class="plan-badge">Limited Access</div>
+                    <ul>
+                        <li>Basic recipe browsing</li>
+                        <li>View up to 5 recipes per month</li>
+                        <li>Basic ingredient input</li>
+                        <li>No expiry alerts</li>
+                        <li>No ingredient tracking</li>
+                        <li>No community sharing features</li>
+                        <li>No shopping list generator</li>
+                    </ul>
+                    <button class="pricing-btn" onclick="selectPlan('free')">Get Started Free</button>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Premium Plan</h3>
+                    <div class="price">$12<span>/year</span></div>
+                    <div class="plan-badge premium">Full Access</div>
+                    <ul>
+                        <li>Unlimited recipe generation</li>
+                        <li>Smart expiry notifications</li>
+                        <li>Advanced ingredient tracking</li>
+                        <li>AI-powered personalized recipes</li>
+                        <li>Community food sharing marketplace</li>
+                        <li>Shopping list generator</li>
+                        <li>Leftover Magic AI recipe creator</li>
+                        <li>Detailed nutrition information</li>
+                        <li>Ingredient tagging (vegan, gluten-free)</li>
+                        <li>Waste reduction analytics</li>
+                        <li>Priority customer support</li>
+                    </ul>
+                    <button class="pricing-btn premium" onclick="selectPlan('premium')">Upgrade to Premium</button>
+                    <div class="savings-badge">Save $108/year vs monthly plans!</div>
+                </div>
+            </div>
+            
+            <div class="plan-comparison">
+                <h3>Why Choose Premium?</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-icon">🔔</div>
+                        <h4>Smart Notifications</h4>
+                        <p>Never let food expire again with AI-powered expiry alerts</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon">🤝</div>
+                        <h4>Community Sharing</h4>
+                        <p>Share surplus food with neighbors and reduce waste together</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon">🛒</div>
+                        <h4>Smart Shopping Lists</h4>
+                        <p>Generate optimized shopping lists from any recipe</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon">✨</div>
+                        <h4>Leftover Magic</h4>
+                        <p>Transform leftovers into new delicious meals with AI</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i>
+                <span>Eco Food</span>
+            </div>
+            <p>&copy; 2025 Eco Food. All rights reserved. Built with sustainability in mind.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
